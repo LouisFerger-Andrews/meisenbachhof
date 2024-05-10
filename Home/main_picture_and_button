@@ -1,0 +1,97 @@
+<!-- Custom Banner Section with Image, Title, and Button -->
+<section id="shopify-section-custom-image-banner" class="shopify-section">
+  <div class="custom-banner">
+    <img src="//meisenbachhof.de/cdn/shop/files/384eb099-c60d-4502-8da1-af49a1cac00c.jpg" alt="Banner Image" class="custom-banner__image">
+    <div class="banner__box content-container content-container--full-width-mobile color-inverse gradient">
+      <h2 class="banner__heading inline-richtext h1">
+        Ein unerwartetes Weinabenteuer
+      </h2>
+      <div class="banner__buttons">
+        <a href="/collections/all" class="button button--secondary button--discover-wines">JETZT WEINE ENTDECKEN</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<style>
+/* Styling for custom full-width banner with fixed height */
+.custom-banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.custom-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 1;
+}
+
+.custom-banner__image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
+}
+
+.banner__box {
+  position: absolute;
+  top: 66.67%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.button--discover-wines {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 12px 12px;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 1px;
+}
+
+.button--discover-wines:hover {
+  background-color: white;
+  color: #403F3F;
+}
+
+@media (max-width: 600px) {
+  .custom-banner__image {
+    height: 200px;
+  }
+
+  .banner__box {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .banner__heading {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  .button--discover-wines {
+    font-size: 14px;
+    padding: 12px 12px;
+  }
+}
+
+</style>

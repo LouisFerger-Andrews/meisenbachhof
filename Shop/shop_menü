@@ -1,0 +1,29 @@
+<!-- Menu items -->
+<div class="category-menu">
+    <a href="#shopify-section-template--20610647949642__rich_text_Rh3aMf" class="menu-item">Alle Weine</a>
+    <a href="#shopify-section-template--20610647949642__rich_text_3hgrwp" class="menu-item">Rosé</a>
+    <a href="#shopify-section-template--20610647949642__rich_text_jiMkxM" class="menu-item">Weiß</a>
+</div>
+
+<style>
+/* Menu item styling */
+.category-menu {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.menu-item {
+    margin: 0 15px;
+    padding: 10px;
+    color: #333;
+    text-decoration: underline; /* This will make the text underlined by default */
+    font-size: 16px;
+}
+
+.menu-item:hover {
+    color: #000; /* Optionally, you can remove the text-decoration property here if you want the underline to always be visible */
+}
+</style>

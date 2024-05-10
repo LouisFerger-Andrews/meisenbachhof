@@ -47,8 +47,6 @@
 }
 
 
-
-
 .product-item {
   width: 270px;  /* Fixed width for all devices */
   background-color: transparent;
@@ -195,47 +193,54 @@
 
 @media (max-width: 767px) {
   .product-grid {
-    overflow: hidden;
     display: flex;
     flex-wrap: nowrap;
+    overflow: hidden;
     scroll-snap-type: x mandatory;
+    padding: 0; /* Make sure there's no padding affecting the width */
+    width: 100%; /* Force the grid to take full width */
   }
 
   .product-item {
-    flex: 0 0 100%;
-    max-width: 100%;
-    scroll-snap-align: start;
+    flex: 0 0 100%; /* Ensures item takes full width of the viewport */
     box-sizing: border-box;
+    padding: 10px; /* Internal padding should not affect width due to box-sizing */
+    margin: 0; /* Eliminate any margin */
   }
 
   .product-item img.product-image {
-    height: 336px; 
+    width: 250px; /* Set width to 270px */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the assigned area */
+    margin: 0 auto; /* Center the image within the product item */
   }
 
-.add-to-cart-btn,
-  .product-form,
-  .sold-out {
-    width: 100%; 
-    max-width: none; 
+.product-details {
+    width: 270px; /* Match width to the product image width */
+    display: flex;
+    flex-direction: row; /* Layout items in a row */
+    justify-content: space-between; /* Space items appropriately */
+    align-items: center; /* Center align vertically */
+    margin: 0 auto; /* Center horizontally within the product item */
+    padding: 0 10px; /* Add padding to avoid text touching the edges */
+  }
+
+  .product-details .product-name {
+    text-align: left; /* Align the name to the left */
+    flex: 1; /* Allow the name to expand */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Use ellipsis for overflow text */
+  }
+
+  .product-details .product-price {
+    text-align: right; /* Align the price to the right */
+    flex-shrink: 0; /* Prevent the price from shrinking */
+    white-space: nowrap; /* Prevent wrapping */
   }
 }
 
-.product-details {
 
-    justify-content: space-between; 
-    padding-top: 10px; 
-padding-bottom: 10px; 
-    margin: 0; 
-flex-grow: 1;
-text-align: right;
-  }
-
-.product-price {
-    color: #403F3F;
-    text-align: right;
-    margin-left: auto; 
-    padding-right: 0; 
-  }
 
 </style>
 
@@ -244,12 +249,12 @@ text-align: right;
 $('.product-grid').slick({
   infinite: false,
   speed: 300,
-  slidesToShow: 4, 
-  slidesToScroll: 4, 
+  slidesToShow: 4,
+  slidesToScroll: 4,
   arrows: true,
   responsive: [
     {
-      breakpoint: 1050,
+      breakpoint: 1024,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -263,7 +268,6 @@ $('.product-grid').slick({
         slidesToScroll: 1
       }
     }
-
   ]
 });
 </script>

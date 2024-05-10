@@ -1,0 +1,182 @@
+<div class="team-members-grid">
+  <!-- Carolin -->
+  <div class="team-member-introduction">
+    <img src="https://cdn.shopify.com/s/files/1/0804/8751/4442/files/IMG_9096.jpg?v=1712981785" alt="Carolin" class="team-member-photo">
+    <div class="team-member-details">
+      <h2 class="team-member-name">CAROLIN</h2>
+      <p class="team-member-role">MITGRÜNDERIN</p>
+    </div>
+  </div>
+
+    <div class="team-member-introduction">
+    <img src="https://cdn.shopify.com/s/files/1/0804/8751/4442/files/10f4e023-b064-4eb1-a7fd-84e2d5d26855.jpg?v=1712984494" alt="Mattias" class="team-member-photo" style="height: 420px; object-fit: cover;">
+    <div class="team-member-details">
+      <h2 class="team-member-name">MATTIAS</h2>
+      <p class="team-member-role">GRÜNDER & PIONIER</p>
+    </div>
+  </div>
+
+  <!-- Karin -->
+  <div class="team-member-introduction">
+    <img src="https://cdn.shopify.com/s/files/1/0804/8751/4442/files/71f0a09a-ddee-49b7-9a1b-df9766eb2506.jpg?v=1712984540" alt="Karin" class="team-member-photo">
+    <div class="team-member-details">
+      <h2 class="team-member-name">KARIN</h2>
+      <p class="team-member-role">VISIONÄRIN & KOORDINATORIN</p>
+    </div>
+  </div>
+
+  <!-- Stefan -->
+  <div class="team-member-introduction">
+    <img src="https://cdn.shopify.com/s/files/1/0804/8751/4442/files/IMG_9750.jpg?v=1712984779" alt="Stefan" class="team-member-photo">
+    <div class="team-member-details">
+      <h2 class="team-member-name">STEFAN</h2>
+      <p class="team-member-role">GENUSS-EXPERTE</p>
+    </div>
+  </div>
+
+  <!-- Katrina -->
+  <div class="team-member-introduction">
+    <img src="https://cdn.shopify.com/s/files/1/0804/8751/4442/files/IMG_2539.jpg?v=1712984854" alt="Katrina" class="team-member-photo">
+    <div class="team-member-details">
+      <h2 class="team-member-name">KATRINA</h2>
+      <p class="team-member-role">ORGANISATIONSTALENT</p>
+    </div>
+  </div>
+
+  <!-- Alessandro -->
+  <div class="team-member-introduction">
+    <img src="https://cdn.shopify.com/s/files/1/0804/8751/4442/files/IMG_9510.jpg?v=1712984703" alt="Alessandro" class="team-member-photo">
+    <div class="team-member-details">
+      <h2 class="team-member-name">ALESSANDRO</h2>
+      <p class="team-member-role">TECHNOLOGIEEXPERTE</p>
+    </div>
+  </div>
+
+  <!-- Alexander -->
+  <div class="team-member-introduction">
+    <img src="https://cdn.shopify.com/s/files/1/0804/8751/4442/files/IMG_7866.jpg?v=1712984629" alt="Alexander" class="team-member-photo">
+    <div class="team-member-details">
+      <h2 class="team-member-name">ALEXANDER</h2>
+      <p class="team-member-role">ALLROUNDER</p>
+    </div>
+  </div>
+
+  <!-- Maren -->
+  <div class="team-member-introduction">
+    <img src="https://cdn.shopify.com/s/files/1/0804/8751/4442/files/IMG_2550.jpg?v=1712984892" alt="Maren" class="team-member-photo">
+    <div class="team-member-details">
+      <h2 class="team-member-name">MAREN</h2>
+      <p class="team-member-role">KÜNSTLERIN</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<style>
+.team-members-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px; /* Adjust the gap between the team members */
+  margin: 0 auto; /* Centering the grid */
+  padding: 0; /* Padding adjusted in media query */
+}
+
+.team-member-introduction {
+  position: relative;
+  width: 300px; /* Fixed width of the container */
+  text-align: center;
+  overflow: hidden; /* Hide overflow to maintain border-radius */
+}
+
+.team-member-photo {
+  width: 100%;
+  height: 420px; /* Fixed height for all images */
+  object-fit: cover; /* Cover the area without stretching the image */
+  border-radius: 10px; /* Rounded corners for the image */
+  display: block;
+}
+
+.team-member-details {
+  position: absolute;
+  bottom: 0; /* Position the text at the bottom */
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background: linear-gradient(to bottom, transparent 60%, rgba(255, 255, 255, 0.5) 100%);
+  backdrop-filter: blur(10px); /* Glassmorphism effect */
+  color: white; /* Text color set to white */
+  text-align: center;
+  border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+}
+
+.team-member-name {
+  color: white;
+  font-size: 1.5em; /* Adjust font-size as needed */
+  margin-bottom: 5px; /* Space above the role */
+  font-weight: bold; /* Bold font for the name */
+}
+
+.team-member-role {
+  font-size: 0.9em; /* Adjust font-size as needed */
+  margin-top: 0; /* Space below the name */
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .team-members-grid {
+    justify-content: space-around; /* Evenly space items around */
+    gap: 10px; /* Set a smaller gap */
+    padding: 0 10px; /* 10px padding to the sides */
+  }
+
+  .team-member-introduction {
+    width: 155px; /* Adjust the width to fit two items per row */
+    margin-bottom: 10px; /* Space between the items vertically */
+  }
+
+  .team-member-photo {
+    width: 155px !important; /* Force the width, overriding other styles */
+    height: 217px !important; /* Force the height, overriding other styles */
+    object-fit: cover; /* Ensure the image covers the area */
+    border-radius: 10px; /* Maintain the border radius */
+    display: block; /* Ensure the image is a block element */
+  }
+
+  .team-member-details {
+    position: absolute;
+    bottom: 0; /* Position the text at the bottom */
+    left: 0;
+    right: 0;
+    height: 65.45px; /* Increasing height by 10% */
+    display: flex; /* Use flex to center text */
+    flex-direction: column; /* Stack flex items vertically */
+    align-items: center; /* Center text horizontally */
+    justify-content: center; /* Center text vertically */
+    background: linear-gradient(to bottom, transparent 60%, rgba(255, 255, 255, 0.6) 100%);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    color: white; /* Text color set to white */
+    text-align: center;
+    border-radius: 0 0 10px 10px; /* Rounded corners at the bottom */
+    overflow: hidden; /* Prevent text from spilling over */
+  }
+
+  .team-member-name {
+    font-size: 0.9em; /* Adjust the font size if necessary */
+    margin: 0; /* Remove margin to help with centering */
+    order: 1; /* Name comes first */
+  }
+
+  .team-member-role {
+    font-size: 0.7em; /* Adjust the font size if necessary */
+    margin: 0; /* Remove margin to help with centering */
+    order: 2; /* Role comes second */
+  }
+}
+</style>
