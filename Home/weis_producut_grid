@@ -1,0 +1,226 @@
+<div class="weis-wine-product-grid">
+  {% for product in collections.all.products %}
+    {% if product.tags contains 'Weiß-Wein' %}
+      <div class="product-item">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image | img_url: '450x450' }}" alt="{{ product.title }}" class="product-image">
+        </a>
+        <div class="product-details">
+          <span class="product-name">{{ product.title }}</span>
+          <span class="product-price">{{ product.price | money }}</span>
+        </div>
+        {% if product.available %}
+        <form action="/cart/add" method="post" class="product-form">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <div class="quantity-selector">
+            <button type="button" class="quantity-minus">-</button>
+            <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+            <button type="button" class="quantity-plus">+</button>
+          </div>
+          <input type="submit" value="In den Warenkorb" class="add-to-cart-btn">
+        </form>
+        {% else %}
+        <button class="add-to-cart-btn sold-out" disabled>Ausverkauft</button>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
+
+<style>
+
+.weis-wine-product-grid {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  scroll-snap-type: x mandatory;
+  padding: 0; /* Adjusted to ensure no extra padding interferes */
+  width: 100%; /* Set to 100% to utilize full container width */
+  justify-content: center; /* Ensures items are centered */
+  align-items: center;
+}
+
+@media (min-width: 1200px) {
+  .weis-wine-product-grid {
+    justify-content: center; /* Change from flex-start to center */
+  }
+}
+
+
+.product-item {
+  width: 270px;  /* Fixed width for all devices */
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 22px 11px; /* Horizontal padding */
+  text-align: center;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 4px; /* Spacing between items */
+  margin-left: 4px; /* Spacing between items */
+}
+
+.product-item img.product-image {
+  height: 420px;
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.product-details .product-name {
+  color: #403F3F;
+}
+
+.product-details .product-price {
+  color: #403F3F;
+  text-align: right;
+}
+
+.product-form {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.quantity-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 240px;
+  background-color: #fff;
+  border: 0.08px solid #403F3F;
+  padding: 10px 0;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.quantity-minus,
+.quantity-plus {
+  width: 15%;
+  background-color: #fff;
+  color: #403F3F;
+  cursor: pointer;
+  font-size: 1.2em;
+  border: none;
+}
+
+.quantity-input {
+  flex-grow: 1;
+  text-align: center;
+  background-color: #fff;
+  border: none;
+}
+
+.add-to-cart-btn {
+  background-color: #CCE3E8;
+  color: #403F3F;
+  padding: 12px 24px;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  border-radius: 0;
+  border: 0.08px solid #403F3F;
+  font-size: 1em;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+@media (max-width: 960px) {
+  .product-item {
+    flex: 0 0 calc((100% - 2 * 20px - 2 * 20px) / 2);
+  }
+}
+
+@media (max-width: 767px) {
+  .weis-wine-product-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    padding: 0; /* Make sure there's no padding affecting the width */
+    width: 100%; /* Force the grid to take full width */
+  }
+
+  .product-item {
+    flex: 0 0 100%; /* Ensures item takes full width of the viewport */
+    box-sizing: border-box;
+    padding: 10px; /* Internal padding should not affect width due to box-sizing */
+    margin: 0; /* Eliminate any margin */
+  }
+
+  .product-item img.product-image {
+    width: 250px; /* Set width to 270px */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the assigned area */
+    margin: 0 auto; /* Center the image within the product item */
+  }
+
+  .product-details {
+    width: 270px; /* Match width to the product image width */
+    display: flex;
+    flex-direction: row; /* Layout items in a row */
+    justify-content: space-between; /* Space items appropriately */
+    align-items: center; /* Center align vertically */
+    margin: 0 auto; /* Center horizontally within the product item */
+    padding: 0 10px; /* Add padding to avoid text touching the edges */
+  }
+
+  .product-details .product-name {
+    text-align: left; /* Align the name to the left */
+    flex: 1; /* Allow the name to expand */
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden; /* Hide overflow */
+    text-overflow: ellipsis; /* Use ellipsis for overflow text */
+  }
+
+  .product-details .product-price {
+    text-align: right; /* Align the price to the right */
+    flex-shrink: 0; /* Prevent the price from shrinking */
+    white-space: nowrap; /* Prevent wrapping */
+  }
+}
+
+</style>
+
+<script>
+$(document).ready(function() {
+  var numProducts = $('.weis-wine-product-grid .product-item').length;  // Count the number of products
+  var slidesToShow = Math.min(3, numProducts);  // Show up to 3 products, or less if fewer are available
+
+  $('.weis-wine-product-grid').slick({
+    infinite: slidesToShow > 1,  // Enable infinite mode only if more than one slide
+    speed: 300,
+    centerMode: true,  // Enable center mode
+    centerPadding: '60px',  // Add padding to help center items
+    slidesToShow: slidesToShow,
+    slidesToScroll: slidesToShow,
+    arrows: slidesToShow > 1,  // Display arrows only if more than one slide is shown
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,  // Always allow infinite scrolling on small devices
+          arrows: true,
+          centerMode: true,  // Ensure center mode is enabled on small devices
+          centerPadding: '40px'  // Adjust center padding for small devices
+        }
+      }
+    ]
+  });
+});
+</script>
